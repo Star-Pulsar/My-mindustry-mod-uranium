@@ -1,0 +1,20 @@
+type: Wall
+name: "uranium-wall"
+displayName: "Урановая Стена"
+description: "Сверхпрочная стена. Почти при каждом ударе испускает мощное радиоактивное излучение, поражающее нападающих."
+size: 1
+health: 5000
+chanceDeflect: 0
+flashHit: true
+
+lightningChance: 0.99
+lightningDamage: 25
+lightningLength: 8
+lightningColor: 83f28f
+
+requirements: [
+  uranium/50
+]
+
+category: defense
+research: enriched-uranium
