@@ -1,0 +1,55 @@
+type: ConsumeGenerator
+name: uranium-reactor
+displayName: Урановый Реактор
+description: Продвинутый и компактный реактор. Потребляет обогащенный уран и требует постоянного криогенного охлаждения. Вырабатывает в 2 раза больше энергии, чем ториевый. Взрывается при перегреве и уничтожении.
+size: 2
+health: 1500
+category: power
+
+# Генерация энергии в секунду (33.33333333 * 60 тиков = ровно 2000)
+powerProduction: 33.33333333
+itemDuration: 420
+
+# Включаем электрическую сеть и склады
+hasPower: true
+outputsPower: true
+hasItems: true
+hasLiquids: true
+
+# ИСПРАВЛЕННЫЙ БЛОК ПОТРЕБЛЕНИЯ ДЛЯ V7
+consumes: {
+  # Разметка предметов строго через объект (чтобы игра увидела уран)
+  items: {
+    items: [
+      enriched-uranium/1
+    ]
+  }
+}
+
+# Настройки взрыва при уничтожении
+explosionRadius: 40
+explosionDamage: 5000
+explosionEffect: reactorExplosion
+
+# Красивая анимация зеленого свечения во время работы
+drawer: {
+  type: DrawMulti
+  drawers: [
+    {
+      type: DrawDefault
+    }
+    {
+      type: DrawWarmth
+      color: 98ff98
+    }
+  ]
+}
+
+requirements: [
+  lead/150
+  silicon/120
+  titanium/100
+  enriched-uranium/40
+]
+
+research: uranium
