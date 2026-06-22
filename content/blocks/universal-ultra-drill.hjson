@@ -1,0 +1,54 @@
+type: Drill
+name: "Универсальный бур МК-1"
+description: "Компактный бур 2х2. Копает абсолютно всё с самого начала игры."
+size: 2
+health: 400
+tier: 5
+
+// 3 секунды на добычу базового ресурса (180 тиков)
+drillTime: 180
+
+# Отключаем обязательную энергию и ломающий игру блок consumes
+hasPower: false
+hasLiquids: true
+liquidBoostIntensity: 1.6
+
+# НАСТРОЙКА ТРЁХ ТЕКСТУР (Крышка, Ротор, Корпус)
+drawer: {
+  type: DrawMulti
+  drawers: [
+    # 1 слой: Нижний корпус (Файл: universal-ultra-drill.png)
+    {
+      type: DrawBlock
+    }
+    # 2 слой: Крутящийся ротор (Файл: universal-ultra-drill-rotator.png)
+    {
+      type: DrawRotator
+      drawSpeed: 5
+    }
+    # 3 слой: Неподвижная крышка сверху (Файл: universal-ultra-drill-top.png)
+    {
+      type: DrawRegion
+      suffix: "-top"
+    }
+  ]
+}
+
+requirements: [
+  copper/60
+  lead/40
+]
+category: production
+planet: uranis
+
+# ПРАВИЛЬНЫЙ БЛОК ДЛЯ СБИТИЯ ЦЕНЫ:
+research: {
+  parent: core-shard
+  planet: serpulo
+  objectives: []
+  requirements: [
+    copper/5000
+    lead/2500
+    silicon/1000
+  ]
+}
