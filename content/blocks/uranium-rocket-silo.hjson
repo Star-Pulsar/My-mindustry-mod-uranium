@@ -1,0 +1,106 @@
+type: ItemTurret
+name: uranium-rocket-silo
+displayName: Ядерная Ракетная Шахта
+description: Стационарный комплекс стратегического назначения. Запускает тяжелые межконтинентальные урановые ракеты. Не имеет поворотной башни. Пожирает колоссальное количество топлива за залп.
+size: 5
+health: 5500
+category: turret
+
+range: 720
+reload: 480
+rotateSpeed: 0
+
+# ЭТИ ДВА ПАРАМЕТРА ЗАСТАВЯТ СТАЦИОНАРНУЮ ШАХТУ СТРЕЛЯТЬ МГНОВЕННО В ЛЮБУЮ СТОРОНУ
+accurateDelay: false
+shootCone: 360
+
+maxAmmo: 200
+ammoPerShot: 200
+
+drawer: {
+  type: DrawTurret
+  basePrefix: uranium-rocket-silo-
+}
+
+energyUsage: 25.0
+
+# Убираем забагованный firstShotDelay, который блокировал выстрел стационарного блока
+shoot: {
+  type: ShootPattern
+  shots: 1
+}
+
+shootSound: deepBlast
+chargeSound: lasercharge
+
+ammoTypes: {
+  enriched-uranium: {
+    type: MissileBulletType
+    damage: 2500
+    buildingDamageMultiplier: 1.0
+    ammoMultiplier: 1
+    
+    speed: 3
+    homingPower: 0.05
+    homingRange: 200
+    lifetime: 240
+    
+    width: 24
+    height: 36
+    
+    frontColor: 98ff98
+    backColor: 44aa44
+    trailColor: 55cc55
+    trailWidth: 4
+    trailLength: 20
+    
+    hitEffect: reactorExplosion
+    despawnEffect: blastExplosion
+    keepVelocity: false
+    
+    status: melting
+    statusDuration: 600
+    
+    splashDamage: 1200
+    splashDamageRadius: 96
+  }
+   plutonium: {
+    type: MissileBulletType
+    damage: 5000
+    buildingDamageMultiplier: 1.8
+    ammoMultiplier: 1
+    
+    speed: 4
+    homingPower: 0.05
+    homingRange: 200
+    lifetime: 240
+    
+    width: 36
+    height: 47
+    
+    frontColor: 98ff98
+    backColor: 44aa44
+    trailColor: 55cc55
+    trailWidth: 4
+    trailLength: 20
+    
+    hitEffect: reactorExplosion
+    despawnEffect: blastExplosion
+    keepVelocity: false
+    
+    status: melting
+    statusDuration: 600
+    
+    splashDamage: 2400
+    splashDamageRadius: 130
+  }
+}
+
+requirements: [
+  copper/3000
+  silicon/1500
+  uranium/1500
+  enriched-uranium/500
+]
+
+research: foreshadow
