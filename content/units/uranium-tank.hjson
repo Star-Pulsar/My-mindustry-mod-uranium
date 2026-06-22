@@ -1,0 +1,56 @@
+type: tank
+name: uranium-tank
+displayName: Урановая САУ Т-1
+description: Тяжелая самоходная артиллерийская установка прорыва. Оснащена жестко закрепленными спаренными пусковыми контейнерами. Ведет разрушительный огонь урановыми ракетами на огромную дистанцию.
+speed: 0.65
+hitSize: 12
+health: 2000
+
+# Анимация массивных гусениц
+treadRects: [
+  {
+    x: -6
+    y: -12
+    width: 12
+    height: 24
+  }
+]
+
+weapons: [
+  {
+    # Пушка встроена в корпус, отдельный спрайт башни не нужен
+    x: 5
+    y: 2
+    reload: 75
+    shootSound: missile
+    mirror: true
+    # САУ целится всем корпусом
+    rotate: false
+    
+    bullet: {
+      type: MissileBulletType
+      # Основной урон увеличен до 240
+      damage: 240
+      speed: 3.5
+      homingPower: 0.08
+      homingRange: 200
+      lifetime: 110
+      keepVelocity: false
+      
+      # Артиллерийский взрыв по площади
+      hitEffect: blastExplosion
+      despawnEffect: blastExplosion
+      splashDamage: 120
+      splashDamageRadius: 48
+      
+      # Визуал урановой ракеты (зеленоватый ядерный след)
+      trailColor: a9f8a3
+      backColor: a9f8a3
+      frontColor: ffffff
+      trailWidth: 2.5
+      trailLength: 15
+    }
+  }
+]
+
+research: uranium-unit-builder
