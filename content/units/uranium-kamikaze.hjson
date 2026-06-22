@@ -1,0 +1,50 @@
+type: flying
+name: uranium-kamikaze
+displayName: Урановый Камикадзе
+description: Тяжелый воздушный снаряд на урановой тяге. При уничтожении или контакте выпускает мощную урановую волну, аннигилирующую постройки и конвейеры.
+flying: true
+speed: 3.2
+drag: 0.05
+accel: 0.15
+hitSize: 10
+health: 280
+circleTarget: false
+range: 12
+
+# Оставляем только красивый визуальный эффект при смерти
+deathExplosionEffect: reactorExplosion
+
+# ЭТА НАСТРОЙКА ЗАСТАВЛЯЕТ ЮНИТА ВЫСТРЕЛИТЬ ПОД СЕБЯ ПРИ СМЕРТИ
+# Создает полноценную пулю, которая разносит конвейеры и стены
+createScorch: true
+killShooter: true
+
+weapons: [
+  {
+    # Оружие ближнего боя
+    reload: 10
+    shootCone: 180
+    ejectEffect: none
+    shootSound: explosionbig
+    mirror: false
+    x: 0
+    y: 0
+    
+    bullet: {
+      type: BombBulletType
+      hitEffect: reactorExplosion
+      # Огромный радиус (около 10 клеток)
+      splashDamageRadius: 80
+      # Чистый урон по постройкам и юнитам
+      splashDamage: 1400
+      killShooter: true
+      instantDisappear: true
+      
+      # Защита: если юнита сбили, эта же пуля сработает в точке его смерти
+      collides: true
+      collidesTiles: true
+    }
+  }
+]
+
+research: uranium-unit-builder
