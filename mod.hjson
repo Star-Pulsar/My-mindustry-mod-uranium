@@ -1,0 +1,6 @@
+name: "uranium-nuke-mod"
+displayName: "Uranium Mod"
+author: "Star-Pulsar"
+description: "Ultra mod, Adds Uranium"
+version: "1.0"
+minGameVersion: "146"
