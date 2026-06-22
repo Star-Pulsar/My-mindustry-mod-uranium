@@ -1,0 +1,6 @@
+type: OreBlock
+name: "uranium_ore"
+itemDrop: "uranium"
+
+# Указываем 1, так как у нас один кастомный спрайт руды
+variants: 1
