@@ -1,0 +1,34 @@
+type: GenericCrafter
+name: "Плутониевый пресс"
+description: "Тяжёлый промышленный пресс. Использует высокое давление и кинетическую энергию для сжатия урана и обогащённого урана в стабильный плутоний."
+size: 2
+health: 840
+category: crafting
+
+// Время производства: 1.5 секунды (90 тиков)
+craftTime: 90
+itemCapacity: 20
+
+hasPower: true
+consumes: {
+  power: 3.5
+  items: [
+    uranium/3
+    lead/5
+  ]
+}
+
+outputItem: plutonium/1
+
+# Исправлено: теперь во время работы выделяется стандартный дым
+updateEffect: smoke
+craftEffect: pulverize
+
+requirements: [
+  copper/150
+  lead/120
+  silicon/50
+]
+
+// Привязка исследования к обогатителю урана
+research: "uranium-enricher"
