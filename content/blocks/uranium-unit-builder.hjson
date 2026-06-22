@@ -1,0 +1,45 @@
+type: UnitFactory
+name: uranium-unit-builder
+displayName: Фабрика Урановых Войск
+description: Специализированный производственный комплекс для сборки продвинутых боевых единиц на урановой основе. Быстро истощает запасы радиоактивных материалов.
+size: 3
+health: 350
+category: units
+
+# Стоимость постройки здания самой фабрики
+requirements: [
+  copper/500
+  lead/500
+  plastanium/100
+  uranium/50
+]
+
+consumes: {
+  power: 2.5
+}
+
+# Здесь прописаны оба ваших юнита Т-1
+plans: [
+  {
+    unit: uranium-kamikaze
+    time: 900
+    requirements: [
+      silicon/30
+      titanium/20
+      uranium/100
+    ]
+  }
+  {
+    unit: uranium-tank
+    # Сборка тяжелой САУ занимает 25 секунд (1500 тиков)
+    time: 1500
+    # Ресурсы для производства одной САУ
+    requirements: [
+      silicon/600
+      titanium/400
+      uranium/250
+    ]
+  }
+]
+
+research: uranium
