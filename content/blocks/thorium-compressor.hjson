@@ -1,0 +1,32 @@
+type: GenericCrafter
+name: Ториевый пресс
+description: Спрессовывает торий под воздействием воды, получая чистый уран.
+
+# Размеры и параметры
+size: 1
+health: 120
+category: crafting
+
+# Время крафта в кадрах (60 кадров = 1 секунда)
+craftTime: 60.0
+
+# Потребление ресурсов
+hasItems: true
+hasLiquids: true
+
+consumes: {
+  items: [
+    thorium/3
+  ]
+  liquid: {
+    liquid: water
+    amount: 0.1 # Потребление воды в секунду
+  }
+}
+
+# Что производит блок
+outputItem: uranium/1
+
+# Настройки звука
+ambientSound: crafter
+ambientSoundVolume: 0.05
