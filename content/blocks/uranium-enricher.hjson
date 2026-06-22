@@ -1,0 +1,38 @@
+type: GenericCrafter
+name: "Обогатитель Урана"
+displayName: "Обогатитель урана"
+description: "Соединяет уран и торий под высоким давлением. Требует постоянного водяного охлаждения для стабильной работы."
+
+size: 3
+health: 360
+craftTime: 90
+
+consumes: {
+  power: 2.5
+  items: [
+    uranium/1
+  ]
+  liquids: [
+    water/0.1
+  ]
+}
+
+outputItem: enriched-uranium/1
+craftEffect: none
+
+# ЭТА СТРОЧКА ПРИНУДИТЕЛЬНО РАСТЯНЕТ ТВОЙ СПРАЙТ НА 3х3 КЛЕТКИ:
+drawer: {
+  type: DrawDefault
+}
+
+alwaysUnlocked: true
+buildVisibility: shown
+
+requirements: [
+  copper/120
+  lead/80
+  uranium/40
+]
+
+category: crafting
+research: uranium
