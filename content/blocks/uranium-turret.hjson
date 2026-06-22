@@ -1,0 +1,71 @@
+type: ItemTurret
+name: "uranium-turret"
+displayName: "Урановая Турель"
+description: "Тяжелое орудие. Требует постоянного притока криогенной жидкости для охлаждения реактора, иначе стрелять не будет."
+size: 3
+solid: true
+health: 2200
+range: 360
+reload: 45
+rotateSpeed: 2
+shootSound: laserblast
+targetAir: true
+targetGround: true
+
+requirements: [
+  copper/150
+  lead/120
+  uranium/80
+]
+
+consumes: {
+  liquids: [
+    {
+      liquid: cryofluid
+      amount: 0.2
+      booster: false
+    }
+  ]
+}
+
+ammoTypes: {
+  uranium: {
+    type: BasicBulletType
+    speed: 7
+    damage: 85
+    width: 10
+    height: 14
+    frontColor: "83f28f"
+    backColor: "4fa657"
+    status: blasted
+    statusDuration: 60
+    ammoMultiplier: 1
+  }
+  "enriched-uranium": {
+    type: BasicBulletType
+    speed: 9
+    damage: 160
+    width: 12
+    height: 18
+    frontColor: "a6ffb2"
+    backColor: "32a846"
+    status: melting
+    statusDuration: 120
+    ammoMultiplier: 2
+    splashDamage: 60
+    splashDamageRadius: 40
+    fragBullets: 5
+    fragBullet: {
+      type: BasicBulletType
+      speed: 3
+      damage: 20
+      width: 6
+      height: 8
+      lifetime: 20
+      frontColor: "83f28f"
+    }
+  }
+}
+
+category: turret
+research: titanium-turret
