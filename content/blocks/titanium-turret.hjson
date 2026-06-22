@@ -1,0 +1,63 @@
+type: ItemTurret
+name: "Титановое орудие"
+description: "Компактная скорострельная турель 1х1. Специализируется на уничтожении воздушных целей. Принимает титан и уран."
+size: 1
+health: 500
+range: 190               # Увеличенная дальность, чтобы раньше доставать воздушку
+
+# Бешеная скорострельность (стреляет каждые 5 тиков, то есть 12 выстрелов в секунду!)
+reload: 5
+shootCone: 20
+rotateSpeed: 15          # Высокая скорость поворота, чтобы успевать за летунами
+
+# Заставляем пушку в первую очередь атаковать воздушные цели
+targetGround: true
+targetAir: true
+
+ammoTypes: {
+  # ПЕРВЫЙ ПАТРОН: Титан (Быстрый, хороший базовый урон)
+  titanium: {
+    type: BasicBulletType
+    speed: 7.5           # Снаряд летит очень быстро, чтобы не мазать по летунам
+    damage: 18           # Базовый урон
+    width: 6
+    height: 10
+    lifetime: 26         # Дальность = speed * lifetime
+    ammoMultiplier: 4    # Экономичный: 1 титан дает 4 выстрела
+    
+    shootEffect: shootSmall
+    smokeEffect: shootSmallSmoke
+  }
+  
+  # ВТОРОЙ ПАТРОН: Уран (Тяжелый снаряд со сплеш-уроном и радиацией)
+  uranium: {
+    type: BasicBulletType
+    speed: 6.5
+    damage: 35           # Огромный прямой урон
+    
+    # Добавляем урон по площади (сплэш), чтобы задевать пачки летунов
+    splashDamage: 25     
+    splashDamageRadius: 24 # Радиус взрыва (3 клетки в пикселях)
+    
+    # Зеленое ядерное свечение пули
+    frontColor: a9f542
+    backColor: 73bd15
+    width: 8
+    height: 12
+    lifetime: 30
+    ammoMultiplier: 2
+    
+    # Визуальный эффект радиоактивного взрыва при попадании
+    hitEffect: flakExplosion
+    despawnEffect: flakExplosion
+  }
+}
+
+requirements: [
+  copper/50
+  lead/40
+  titanium/20
+]
+
+category: turret
+research: duo
